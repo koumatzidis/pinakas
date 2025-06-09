@@ -1,0 +1,6 @@
+#!C:\projects\venv\Scripts\python.exe
+import sys
+from scovie.publish import publish
+
+if __name__ == '__main__':
+    sys.exit(publish())

@@ -1,0 +1,58 @@
+{% load i18n %}
+{{% load dict_extras %}
+<nav class="navbar bg-white" style="--bs-bg-opacity: .20;">
+    <div class="container-fluid justify-content-center">
+      <span class="navbar-brand text-light">
+        <span id="programme-title">{% translate "Καθημερινό Πρόγραμμα" %}</span>
+      </span>
+    </div>
+  </nav>
+  
+  <div class="table-responsive">
+    <table id="programme-table"
+           class="table table-bordered border-white table-dark table-striped text-center">
+      <thead>
+        <tr>
+          <th>Ώρα</th>
+          <th>Πρόγραμμα (Αίθουσα – Καθηγητής)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% load dict_extras %}
+        {% for time in times %}
+          {% with grid|get_item:time.id as entries %}
+            {% if entries %}
+              <tr>
+                <td>{{ time.name }}</td>
+                <td>
+                  {% for entry in entries %}
+                    <span class="entry-pair">
+                      {{ entry.room }} {{ entry.teacher }}
+                    </span>{% if not forloop.last %},{% endif %}
+                  {% endfor %}
+                </td>
+              </tr>
+            {% endif %}
+          {% endwith %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <style>
+    .entry-pair {
+      display: inline-block;
+      margin-right: 2rem;
+    }
+  </style>
+  
+  <script>
+    // Ίδιο responsive styling με το planning
+    if (window.innerWidth >= 3000) {
+      document.getElementById("programme-title").classList.add("display-6");
+      document.getElementById("programme-table").classList.add("display-6");
+    } else if (window.innerWidth <= 1000) {
+      document.getElementById("programme-title").classList.add("display-4");
+      document.getElementById("programme-table").classList.add("display-3");
+    }
+  </script>

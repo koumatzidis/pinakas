@@ -1,0 +1,54 @@
+{% load i18n %}
+{% load dict_extras %}
+
+<!-- Τίτλος -->
+<nav class="navbar bg-white" style="--bs-bg-opacity: .20;">
+  <div class="container-fluid justify-content-center">
+    <span class="navbar-brand text-light">
+      <span id="planning-title">{% translate "Τροποποίηση Προγράμματος" %}</span>
+    </span>
+  </div>
+</nav>
+
+<!-- Πίνακας Τροποποίησης Προγράμματος -->
+<div class="table-responsive">
+  <table id="planning-table" class="table table-bordered border-white table-dark table-striped text-center">
+    <thead>
+      <tr>
+        <th>{% translate "Ώρα" %}</th>
+        {% for room in planning_rooms %}
+          <th>{{ room.name }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for time in times %}
+        <tr>
+          <td>{{ time.name }}</td>
+          {% for room in planning_rooms %}
+            <td>
+              {% with planning_grid|get_item:time.id as entries %}
+                {% for entry in entries %}
+                  {% if entry.room == room.name %}
+                    {{ entry.teacher }}
+                  {% endif %}
+                {% endfor %}
+              {% endwith %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Responsive αλλαγή μεγέθους -->
+<script>
+  if (window.innerWidth >= 3000) {
+    document.getElementById("planning-title").classList.add("display-6");
+    document.getElementById("planning-table").classList.add("display-6");
+  } else if (window.innerWidth <= 1000) {
+    document.getElementById("planning-title").classList.add("display-4");
+    document.getElementById("planning-table").classList.add("display-3");
+  }
+</script>

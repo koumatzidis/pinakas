@@ -1,0 +1,27 @@
+<h4>Duty Grid Amendments</h4>
+<table class="table table-bordered text-white">
+    <thead>
+        <tr>
+            <th>Ώρα</th>
+            {% for location in locations %}
+                <th>{{ location.name }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for time in duty_times %}
+        <tr>
+            <td>{{ time.name }}</td>
+            {% for location in locations %}
+                <td>
+                    {% for duty in duty_amendments %}
+                        {% if duty.time.id == time.id and duty.location.id == location.id %}
+                            {{ duty.teacher.name }}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

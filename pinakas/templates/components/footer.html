@@ -1,0 +1,22 @@
+{% load i18n %}
+<nav id="footer" class="navbar bg-white" style="--bs-bg-opacity: .20;">
+    <div class="container-fluid">
+        <span class="mb-0 text-start text-light">
+            <img src="/static/ERASMUS+.png" type="media">
+            {% translate "Από την ομάδα Erasmus σε μια ιδέα του Scovie" %}
+        </span>
+    </div>
+</nav>
+<script>
+    // Style depending on screen size
+    if (window.innerWidth >= 3000) {
+        // Digital Signage
+        document.getElementById("footer").classList.add("fixed-bottom", "display-6");
+    } else if (window.innerWidth <= 1000) {
+        // Mobile
+        document.getElementById("footer").classList.add("display-6");
+    } else {
+        // Desktop
+        document.getElementById("footer").classList.add("fixed-bottom");
+    }
+</script>

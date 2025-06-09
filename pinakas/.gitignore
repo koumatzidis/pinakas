@@ -1,0 +1,29 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pyc
+
+# Django
+*.sqlite3
+*.log
+.env
+local_settings.py
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# VSCode settings
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Static & media (αν τα κάνεις collect εκτός του repo)
+staticfiles/
+media/
