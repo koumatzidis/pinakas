@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Terminal=false
-name=Scovie
-Exec=/opt/eldertek/screen.sh
-Categories=Utility;
