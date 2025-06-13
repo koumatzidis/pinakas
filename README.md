@@ -20,7 +20,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 
-![ΟΘΟΝΗ 1](pinakas/static/Pinakas_page1.png)
+![Page 1](pinakas/static/Pinakas_page1.png)
 
-![ΟΘΟΝΗ 2](pinakas/static/Pinakas_page_2.png)
+![Page 2](pinakas/static/Pinakas_page_2.png)
 
