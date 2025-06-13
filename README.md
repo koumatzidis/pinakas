@@ -21,5 +21,5 @@ pip install -r requirements.txt
 python manage.py migrate
 
 ![Page 1](https://raw.githubusercontent.com/koumatzidis/pinakas/main/pinakas/static/Pinakas_page1.png)
-![Page 2](https://raw.githubusercontent.com/koumatzidis/pinakas/main/pinakas/static/Pinakas_page_2.png)
+![Test Image](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png)
 
